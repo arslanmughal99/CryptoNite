@@ -1,0 +1,92 @@
+<div class="main-wrapper">
+  <app-top-bar actionType="back"></app-top-bar>
+  <div class="spacer"></div>
+  <div class="settings-section">
+    <div>
+      <mat-label>Settings</mat-label>
+    </div>
+
+    <div class="spacer"></div>
+    <!-- RESET PASSWORD SECTION -->
+    <div>
+      <form [formGroup]="passRstForm">
+
+        <mat-card class="depth-1 mat-elevation-z3">
+          <mat-label><small> Reset Master Password </small></mat-label>
+          <div class="spacer"></div>
+          <!-- <mat-form-field appearance="outline" class="custom-input-styles full-width" margin="small">
+            <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field> -->
+          <mat-form-field appearance="outline" class="custom-input-styles full-width" margin="small">
+            <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'"
+              formControlName="password">
+            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="custom-input-styles full-width" margin="small">
+            <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'"
+              formControlName="retype">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-raised-button color="warn" class="full-width" [disabled]="!valid"
+            (click)="handlePasswordReset()">Reset</button>
+        </mat-card>
+      </form>
+    </div>
+    <!-- RESET PASSWORD SECTION END-->
+    <div class="spacer"></div>
+    <!-- DARK THEME TOGGLE SECTION  -->
+    <div>
+      <mat-card class="depth-1 mat-elevation-z3">
+        <mat-label><small> Theme </small></mat-label>
+        <div class="theme-toggle-section">
+          <div>
+            <mat-label>Dark Theme</mat-label>
+          </div>
+          <div>
+            <mat-slide-toggle [checked]="darkTheme" (change)="toggleTheme($event)"></mat-slide-toggle>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <!-- DARK THEME TOGGLE SECTION END -->
+    <div class="spacer"></div>
+    <!-- BACKUP AND RESTORE SECTION -->
+    <div>
+      <mat-card class="mat-elevation-z3 depth-1">
+        <mat-label><small> Backup & Restore </small></mat-label>
+        <div class="spacer"></div>
+        <button mat-raised-button color="accent" class="backup-button full-width" (click)="backUp()">Backup</button>
+        <div class="spacer"></div>
+        <button mat-raised-button color="warn" class="full-width" (click)="restore()">Restore</button>
+      </mat-card>
+    </div>
+    <!-- BACKUP AND RESTORE SECTION END -->
+    <div class="spacer"></div>
+    <!-- PROMO -->
+    <div class="promo low-priority-text">
+      <div class="p-logo-sec">
+        <mat-icon svgIcon="shield" class="promo-logo"></mat-icon>
+      </div>
+      <div class="text-promo-sec">
+        <div (click)="openSite()">
+          <mat-label>Design & Developed with <span style="opacity: 1;">❤️</span> by GravitonApp</mat-label>
+        </div>
+        <div (click)="openSite()">
+          <mat-label>Visit: gravitonapps.com</mat-label>
+        </div>
+      </div>
+    </div>
+    <!-- PROMO END -->
+  </div>
+
+</div>

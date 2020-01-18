@@ -1,0 +1,56 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  height: 92%;
+  padding: 2%;
+}
+
+.spacer {
+  height: 20px;
+}
+
+.low-priority-text{
+  opacity: 0.6;
+}
+
+.promo-section{
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-logo {
+  height: 100px;
+  width: auto;
+  font-size: 100px;
+}
+
+.init-password-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+// input {
+//   text-align: center;
+// }
+
+.init-password-section > div {
+  width: 80%;
+}
+
+.custom-input-styles {
+  font-size: 12px;
+}
+
+
+.full-width {
+  width: 100%;
+}

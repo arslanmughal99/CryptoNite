@@ -1,0 +1,14 @@
+<div class="main-wrapper">
+  <div class="top-bar-logo">
+    <mat-icon svgIcon="shield" class="top-bar-icon"></mat-icon>
+  </div>
+  <div>
+    <mat-label>CryptoNite</mat-label>
+  </div>
+  <div>
+    <button mat-icon-button (click)="onNavigateSettings()">
+      <mat-icon *ngIf="actionType === 'settings'" svgIcon="settings" class="animated rotateIn"></mat-icon>
+      <mat-icon *ngIf="actionType === 'back'">keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

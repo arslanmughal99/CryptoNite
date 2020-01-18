@@ -1,0 +1,63 @@
+.main-wrapper {
+  padding: 2%;
+}
+
+mat-card {
+  padding: 10px;
+}
+
+.custom-input-styles {
+  font-size: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.spacer {
+  height: 10px;
+}
+
+// Normalizing margin top and bottom of mat-input-fields
+:host ::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 5px;
+}
+
+.theme-toggle-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.backup-button {
+  color: white;
+  background-color: #42a5f5;
+}
+
+.promo-logo{
+  height: auto;
+  width: 100%;
+  font-size: 100%;
+}
+
+.promo{
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.p-logo-sec{
+  width: 20%;
+}
+
+.text-promo-sec{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 80px;
+  // background-color: lightcoral;
+}
+
+.low-priority-text{
+  opacity: 0.6;
+}

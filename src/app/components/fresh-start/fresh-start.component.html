@@ -1,0 +1,45 @@
+<div class="main-wrapper">
+  <!-- BRANDING SECTION -->
+  <div class="brand">
+    <div class="logo">
+      <mat-icon class="app-logo" svgIcon="shield"></mat-icon>
+    </div>
+    <div class="title">
+      <mat-label>CryptoNite</mat-label>
+    </div>
+  </div>
+  <!-- BRANDING SECTION END -->
+  <div class="spacer"></div>
+  <!-- FIRST RUN MASTER PASSWORD SECTION -->
+  <div class="init-password-section">
+    <form [formGroup]="masterPassForm">
+      <div>
+        <mat-form-field appearance="outline" class="custom-input-styles full-width">
+          <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'"
+            formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="custom-input-styles full-width" *ngIf="!firstRun">
+          <input matInput placeholder="Retype Master password" [type]="hide ? 'password' : 'text'"
+            formControlName="retype">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="warn" class="full-width" [disabled]="!valid"
+          (click)="onContinue()">Continue</button>
+      </div>
+    </form>
+  </div>
+  <!-- FIRST RUN MASTER PASSWORD SECTION END -->
+  <div class="spacer"></div>
+
+
+</div>
+<div class="promo-section" (click)="openSite()">
+  <mat-label class="low-priority-text">CryptoVault by GravitonApps</mat-label>
+</div>

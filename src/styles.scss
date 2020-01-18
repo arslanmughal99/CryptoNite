@@ -1,0 +1,114 @@
+@import "~@angular/material/theming";
+@import "~@simonwep/pickr/dist/themes/nano.min.css";
+@import "~animate.css/animate.min.css";
+@import "offlinecdn.scss";
+@include mat-core();
+
+// Light Theme
+$light-theme-primary: mat-palette($mat-purple, 400);
+$light-theme-accent: mat-palette($mat-purple, A400);
+$light-theme-warn: mat-palette($mat-red, A200);
+$light-theme-theme: mat-light-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+
+// Dark Theme
+$dark-theme-primary: mat-palette($mat-purple, 400);
+$dark-theme-accent: mat-palette($mat-purple, A400);
+$dark-theme-warn: mat-palette($mat-red, A200);
+$dark-theme-theme: mat-dark-theme($dark-theme-primary, $dark-theme-accent, $dark-theme-warn);
+
+// Toggling these classes i.e: 'light-theme' && 'dark-theme' will toggle themeS
+// This Class will activate light theme
+.light-theme {
+  // Application Background
+  mat-card.app-background {
+    background-color: rgb(250, 250, 250);
+  }
+
+  mat-card.depth-1 {
+    background-color: rgb(252, 252, 252);
+  }
+
+  mat-card.depth-2,
+  .depth-2 {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .copied-color {
+    color: rgb(114, 189, 2);
+  }
+
+  ::-webkit-scrollbar{
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+  }
+
+  .mat-bottom-sheet-container{
+    background-color: white !important;
+  }
+
+  @include angular-material-theme($light-theme-theme);
+}
+
+// This Class will activate dark theme
+.dark-theme {
+  // Application Background
+  mat-card.app-background {
+    background-color: #1d1d1d;
+  }
+
+  // Material Card Depth light
+  mat-card.depth-1 {
+    background-color: rgb(41, 41, 41);
+  }
+
+  mat-card.depth-2,
+  .depth-2 {
+    background-color: rgb(59, 59, 59);
+  }
+
+  .copied-color {
+    color: greenyellow;
+  }
+
+  ::-webkit-scrollbar{
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(41, 41, 41);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(59, 59, 59);
+  }
+
+
+  .mat-bottom-sheet-container{
+    background-color: rgb(44, 44, 44) !important;
+  }
+
+  @include angular-material-theme($dark-theme-theme);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

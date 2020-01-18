@@ -1,0 +1,31 @@
+<div class="main-wrapper">
+  <!-- TOPBAR START  -->
+  <div>
+    <app-top-bar actionType="settings"></app-top-bar>
+  </div>
+  <!-- TOPBAR START ENDS -->
+
+  <!-- SEARCH AND ADD NEW PASSWORD -->
+  <div class="search-add-pass">
+    <div class="search-bar">
+      <mat-form-field appearance="outline" class="search-input-styles full-width animated fadeIn">
+        <input matInput placeholder="Placeholder" [(ngModel)]="query" (input)="filterSearch(query)" autofocus>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="new-password">
+      <button mat-icon-button (click)="onAddNew()">
+        <mat-icon class="search-icon" svgIcon="add"></mat-icon>
+      </button>
+    </div>
+  </div>
+  <!-- SEARCH AND ADD NEW PASSWORD ENDS -->
+
+  <div class="spacer"></div>
+
+  <!-- PASSWORDS LIST -->
+  <div class="credentials-list animated slideInUp faster">
+      <app-password-list-item (dblclick)="onDelete(item._id)" *ngFor="let item of filteredCredntials" [credData]="item" class="credentials-list-item"></app-password-list-item>
+  </div>
+  <!-- PASSWORDS LIST ENDS -->
+</div>
