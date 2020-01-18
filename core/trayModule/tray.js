@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
+var path = require("path");
 var tray;
 /**
  * @param clickBounds clickbounds
@@ -72,7 +73,7 @@ function handleBounds(clickBounds, win) {
 **/
 exports.default = (function (win) {
     var menuTemplate = electron_1.Menu.buildFromTemplate([{ role: 'quit', label: 'exit' }]);
-    tray = new electron_1.Tray('src/assets/icons/tray/app.png');
+    tray = new electron_1.Tray(path.join(__dirname, '../../dist/assets/icons/tray/app.png'));
     tray.setToolTip('CryptoVault Secure Vault');
     tray.on('right-click', function (_) {
         tray.popUpContextMenu(menuTemplate);

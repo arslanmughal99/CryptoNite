@@ -9,6 +9,7 @@ import trayHandler from './core/trayModule/tray';
 let win: BrowserWindow = null;
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
+app.requestSingleInstanceLock();
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 

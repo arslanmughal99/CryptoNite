@@ -1,4 +1,5 @@
-import { app, Tray, BrowserWindow, Menu, screen, NativeImage, Rectangle } from 'electron';
+import { Tray, BrowserWindow, Menu, screen, Rectangle } from 'electron';
+import * as path from 'path';
 let tray: Tray;
 
 /**
@@ -74,7 +75,7 @@ function handleBounds(clickBounds: Rectangle, win: BrowserWindow) {
 export default (win: BrowserWindow) => {
   const menuTemplate = Menu.buildFromTemplate([{ role: 'quit', label: 'exit' }]);
 
-  tray = new Tray('src/assets/icons/tray/app.png');
+  tray = new Tray(path.join(__dirname, '../../dist/assets/icons/tray/app.png'));
   tray.setToolTip('CryptoVault Secure Vault');
 
   tray.on('right-click', (_) => {
