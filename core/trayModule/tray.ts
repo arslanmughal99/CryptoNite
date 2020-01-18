@@ -76,7 +76,7 @@ export default (win: BrowserWindow) => {
   const menuTemplate = Menu.buildFromTemplate([{ role: 'quit', label: 'exit' }]);
 
   tray = new Tray(path.join(__dirname, '../../dist/assets/icons/tray/app.png'));
-  tray.setToolTip('CryptoVault Secure Vault');
+  tray.setToolTip('CryptoNite Secure Vault');
 
   tray.on('right-click', (_) => {
     tray.popUpContextMenu(menuTemplate);

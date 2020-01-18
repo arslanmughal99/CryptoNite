@@ -84,7 +84,7 @@ export class SettingsComponent implements OnInit {
       if (err) {
         this._snakeBar.open('Failed :(', 'Dismiss', { duration: 2000 });
       } else {
-        this._snakeBar.open('Reset Sucessfully', 'Dismiss', { duration: 2000 });
+        this._snakeBar.open('Reset Sucessfully, Now Relaunching', 'Dismiss', { duration: 2000 });
         setTimeout(_ => {
           remote.app.relaunch();
           remote.app.exit();
@@ -108,7 +108,7 @@ export class SettingsComponent implements OnInit {
   }
 
   async restore(): Promise<void> {
-    const backUpLocation = remote.dialog.showOpenDialogSync({ title: 'Select folder to backup', properties: ['openFile'], filters: [{ name: 'backup file', extensions: ['bak'] }], buttonLabel: 'Save Backup' });
+    const backUpLocation = remote.dialog.showOpenDialogSync({ title: 'Select folder to backup', properties: ['openFile'], filters: [{ name: 'backup file', extensions: ['bak'] }], buttonLabel: 'Restore Backup' });
     if (backUpLocation) {
       const status = await ipcRenderer.invoke(RESTORE_CRED_DATABASE_CHNL, backUpLocation[0]);
       if (!status) {

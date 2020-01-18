@@ -74,7 +74,7 @@ function handleBounds(clickBounds, win) {
 exports.default = (function (win) {
     var menuTemplate = electron_1.Menu.buildFromTemplate([{ role: 'quit', label: 'exit' }]);
     tray = new electron_1.Tray(path.join(__dirname, '../../dist/assets/icons/tray/app.png'));
-    tray.setToolTip('CryptoVault Secure Vault');
+    tray.setToolTip('CryptoNite Secure Vault');
     tray.on('right-click', function (_) {
         tray.popUpContextMenu(menuTemplate);
     });
