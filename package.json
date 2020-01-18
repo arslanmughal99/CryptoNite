@@ -1,23 +1,20 @@
 {
-  "name": "angular-electron",
+  "name": "crypto-nite",
   "version": "6.4.1",
-  "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "description": "Dead simple | Secure | Cross-Plateform Password Manger ",
+  "homepage": "https://github.com/arslanmughal5566/CryptoNite",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Arslan Mughal",
+    "email": "gravitonapps99@gmail.com"
   },
   "keywords": [
-    "angular",
-    "angular 8",
-    "electron",
-    "typescript",
-    "eslint",
-    "spectron",
-    "sass"
+    "Password",
+    "Secure",
+    "Vault",
+    "Security Manager",
+    "Password Manager"
   ],
   "main": "main.js",
-  "private": true,
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
@@ -98,7 +95,6 @@
     "@simonwep/pickr": "1.5.0",
     "animate.css": "3.7.2",
     "hammerjs": "^2.0.8",
-    "nedb": "1.8.0",
-    "strong-cryptor": "2.2.0"
+    "nedb": "1.8.0"
   }
 }
