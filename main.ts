@@ -21,6 +21,7 @@ function createWindow(): BrowserWindow {
     height: 600,
     resizable: false,
     movable: false,
+    alwaysOnTop: true,
     show: false,
     frame: false,
     webPreferences: {
@@ -29,6 +30,8 @@ function createWindow(): BrowserWindow {
       allowRunningInsecureContent: (serve) ? true : false,
     },
   });
+
+  win.setAlwaysOnTop(true, 'floating')
 
   // Removing the menu
   win.setMenu(null);
@@ -63,7 +66,7 @@ try {
   app.on('ready', _ => {
     createWindow();
     // Core backend handler
-    trayHandler(win);
+    trayHandler(win, serve);
     ipcHandler();
   });
 

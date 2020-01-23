@@ -57,6 +57,7 @@ export default () => {
   ipcMain.handle(DELETE_CRED_DATABASE_CHNL, async (event, id: string) => {
     try {
       await database.delete(id);
+      // database.compactDatabasae();
       return;
     } catch (err) {
       return err;

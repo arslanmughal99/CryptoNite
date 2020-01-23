@@ -30,7 +30,7 @@
             </button> -->
           </mat-form-field>
           <mat-form-field appearance="outline" class="custom-input-styles full-width" margin="small">
-            <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'"
+            <input matInput placeholder="Retype Master password" [type]="hide ? 'password' : 'text'"
               formControlName="retype">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">

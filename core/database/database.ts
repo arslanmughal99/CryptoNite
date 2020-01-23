@@ -22,6 +22,7 @@ export class Database extends Crypto {
       beforeDeserialization: (data) => this.decryptCredentials(data),
       afterSerialization: (data) => this.encryptCredentials(data),
       onload: async (err) => {
+        console.log('DB LOAD ERROR: ', err);
         await this.browserWindow.sender.send('db-status',
           {
             name: err ? err.name : '',
@@ -58,13 +59,16 @@ export class Database extends Crypto {
 
   // }
 
+  // FIXME: compacting database was causing issue
+  // FIXME: it was currpting database file and causing all data to be loose
+  // FIXME: There fore i decided to remove that
   /**
   * @description compact database base file (read NEDB docs for more)
   * @returns void
   **/
-  compactDatabasae(): void {
-    this.db.persistence.compactDatafile();
-  }
+  // compactDatabasae(): void {
+  //   this.db.persistence.compactDatafile();
+  // }
 
   /**
    *  @description Reload database
@@ -108,7 +112,7 @@ export class Database extends Crypto {
     return new Promise((resolve, reject) => {
       this.db.remove({ _id: id }, (err, _) => {
         if (err) reject(err);
-        this.compactDatabasae();
+        // this.compactDatabasae();
         resolve();
       });
     })

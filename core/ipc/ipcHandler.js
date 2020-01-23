@@ -106,6 +106,7 @@ exports.default = (function () {
                     return [4 /*yield*/, database.delete(id)];
                 case 1:
                     _a.sent();
+                    // database.compactDatabasae();
                     return [2 /*return*/];
                 case 2:
                     err_3 = _a.sent();

@@ -70,11 +70,13 @@ var Database = /** @class */ (function (_super) {
             onload: function (err) { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.browserWindow.sender.send('db-status', {
-                                name: err ? err.name : '',
-                                message: err ? err.message : '',
-                                stack: err ? err.stack : ''
-                            })];
+                        case 0:
+                            console.log('DB LOAD ERROR: ', err);
+                            return [4 /*yield*/, this.browserWindow.sender.send('db-status', {
+                                    name: err ? err.name : '',
+                                    message: err ? err.message : '',
+                                    stack: err ? err.stack : ''
+                                })];
                         case 1:
                             _a.sent();
                             return [2 /*return*/];
@@ -106,13 +108,16 @@ var Database = /** @class */ (function (_super) {
     // TODO: Handle this latter
     // private dbOnLoad(err) {
     // }
+    // FIXME: compacting database was causing issue
+    // FIXME: it was currpting database file and causing all data to be loose
+    // FIXME: There fore i decided to remove that
     /**
     * @description compact database base file (read NEDB docs for more)
     * @returns void
     **/
-    Database.prototype.compactDatabasae = function () {
-        this.db.persistence.compactDatafile();
-    };
+    // compactDatabasae(): void {
+    //   this.db.persistence.compactDatafile();
+    // }
     /**
      *  @description Reload database
     **/
@@ -157,7 +162,7 @@ var Database = /** @class */ (function (_super) {
             _this.db.remove({ _id: id }, function (err, _) {
                 if (err)
                     reject(err);
-                _this.compactDatabasae();
+                // this.compactDatabasae();
                 resolve();
             });
         });

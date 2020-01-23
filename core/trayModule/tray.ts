@@ -72,10 +72,11 @@ function handleBounds(clickBounds: Rectangle, win: BrowserWindow) {
  * @param win Electron BrowserWindow object
  * @description tray app handler
 **/
-export default (win: BrowserWindow) => {
+export default (win: BrowserWindow, serve: Boolean) => {
+  let iconSubPath: string = serve ? 'src' : 'dist';
   const menuTemplate = Menu.buildFromTemplate([{ role: 'quit', label: 'exit' }]);
 
-  tray = new Tray(path.join(__dirname, '../../dist/assets/icons/tray/app.png'));
+  tray = new Tray(path.join(__dirname, `../../${iconSubPath}/assets/icons/tray/app.png`));
   tray.setToolTip('CryptoNite Secure Vault');
 
   tray.on('right-click', (_) => {
@@ -91,10 +92,10 @@ export default (win: BrowserWindow) => {
     }
   });
 
-  win.on('blur', _ => {
-    if (win.isVisible()){
-      win.hide();
-    }
-  });
+  // win.on('blur', _ => {
+  //   if (win.isVisible()){
+  //     win.hide();
+  //   }
+  // });
 
 }
