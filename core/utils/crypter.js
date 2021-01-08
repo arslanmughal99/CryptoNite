@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Crypto = void 0;
 var crypto = require("crypto");
 var Crypto = /** @class */ (function () {
     function Crypto(key) {

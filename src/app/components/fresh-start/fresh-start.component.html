@@ -12,15 +12,15 @@
   <div class="spacer"></div>
   <!-- FIRST RUN MASTER PASSWORD SECTION -->
   <div class="init-password-section">
-    <form [formGroup]="masterPassForm">
+    <form [formGroup]="masterPassForm" (submit)="onContinue()" >
       <div>
         <mat-form-field appearance="outline" class="custom-input-styles full-width">
-          <input matInput placeholder="Enter new Master password" [type]="hide ? 'password' : 'text'"
+          <input matInput placeholder="Enter Master password" [type]="hide ? 'password' : 'text'"
             formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+          </button> -->
         </mat-form-field>
       </div>
       <div>
@@ -30,7 +30,7 @@
         </mat-form-field>
       </div>
       <div>
-        <button mat-raised-button color="warn" class="full-width" [disabled]="!valid"
+        <button type="submit" mat-raised-button color="warn" class="full-width" [disabled]="!valid"
           (click)="onContinue()">Continue</button>
       </div>
     </form>

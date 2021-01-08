@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -34,7 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
 var database_1 = require("../database/database");
@@ -44,7 +44,7 @@ exports.default = (function () {
     // to hold database instance
     var database;
     // Initilize Database and try decrypt db with given password
-    electron_1.ipcMain.handle(constants_1.INIT_DATABASE_CHNL, function (event, password) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.INIT_DATABASE_CHNL, function (event, password) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             database = new database_1.Database(password, event);
             return [2 /*return*/];
@@ -61,7 +61,7 @@ exports.default = (function () {
         }
     });
     // Inset new credntial to database
-    electron_1.ipcMain.handle(constants_1.INSERT_DATABASE_CHNL, function (event, credential) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.INSERT_DATABASE_CHNL, function (event, credential) { return __awaiter(void 0, void 0, void 0, function () {
         var err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -79,7 +79,7 @@ exports.default = (function () {
         });
     }); });
     // Get all credntial from database
-    electron_1.ipcMain.handle(constants_1.GETALL_DATABASE_CHNL, function (event) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.GETALL_DATABASE_CHNL, function (event) { return __awaiter(void 0, void 0, void 0, function () {
         var allCred, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -97,7 +97,7 @@ exports.default = (function () {
         });
     }); });
     // Delete credntial from database
-    electron_1.ipcMain.handle(constants_1.DELETE_CRED_DATABASE_CHNL, function (event, id) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.DELETE_CRED_DATABASE_CHNL, function (event, id) { return __awaiter(void 0, void 0, void 0, function () {
         var err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -116,7 +116,7 @@ exports.default = (function () {
         });
     }); });
     // Create backup of database file
-    electron_1.ipcMain.handle(constants_1.BACKUP_CRED_DATABASE_CHNL, function (event, path) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.BACKUP_CRED_DATABASE_CHNL, function (event, path) { return __awaiter(void 0, void 0, void 0, function () {
         var status_1, err_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -134,7 +134,7 @@ exports.default = (function () {
         });
     }); });
     // Restore backup from backup file
-    electron_1.ipcMain.handle(constants_1.RESTORE_CRED_DATABASE_CHNL, function (event, path) { return __awaiter(_this, void 0, void 0, function () {
+    electron_1.ipcMain.handle(constants_1.RESTORE_CRED_DATABASE_CHNL, function (event, path) { return __awaiter(void 0, void 0, void 0, function () {
         var status_2, err_5;
         return __generator(this, function (_a) {
             switch (_a.label) {

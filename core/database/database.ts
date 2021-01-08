@@ -1,7 +1,8 @@
-import * as DataStore from 'nedb';
-import { app } from 'electron';
 import * as fs from 'fs';
 import * as path from 'path';
+import { app } from 'electron';
+import * as DataStore from 'nedb';
+
 import { Credential } from '../../interfaces/Credential';
 import { Crypto } from '../utils/crypter';
 

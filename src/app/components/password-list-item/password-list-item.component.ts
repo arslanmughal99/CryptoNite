@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Credential } from '../../../../interfaces/Credential';
 import { clipboard } from 'electron';
-import { MatSnackBar } from '@angular/material';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { Credential } from '../../../../interfaces/Credential';
 @Component({
   selector: 'app-password-list-item',
   templateUrl: './password-list-item.component.html',

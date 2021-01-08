@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import Picker from '@simonwep/pickr';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Credential } from '../../../../../interfaces/Credential';
 import { ipcRenderer } from 'electron';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+import { Credential } from '../../../../../interfaces/Credential';
 import { INSERT_DATABASE_CHNL } from '../../../../../core/constants/constants';
-import { MatBottomSheetRef, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-new-credential',
@@ -22,7 +24,7 @@ export class NewCredentialComponent implements OnInit {
     private _fb: FormBuilder,
     private _bottomSheetRef: MatBottomSheetRef<NewCredentialComponent>,
     private _matSnakeBar: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.newCredForm = this._fb.group({
@@ -74,8 +76,8 @@ export class NewCredentialComponent implements OnInit {
     };
     try {
       const err = await ipcRenderer.invoke(INSERT_DATABASE_CHNL, newCredential);
-      if(err) {
-        this._matSnakeBar.open('Something went wrong ', 'Dismiss', {duration: 2000});
+      if (err) {
+        this._matSnakeBar.open('Something went wrong ', 'Dismiss', { duration: 2000 });
       } else {
         this._bottomSheetRef.dismiss();
       }

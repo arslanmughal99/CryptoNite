@@ -1,11 +1,12 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 import { ipcRenderer, remote } from 'electron';
-import { LocalStorageService } from '../../services/localstorage/local-storage.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { masterCheck } from '../../../../interfaces/Credential';
 import { INIT_DATABASE_CHNL } from '../../../../core/constants/constants';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+import { LocalStorageService } from '../../services/localstorage/local-storage.service';
 
 @Component({
   selector: 'app-fresh-start',
@@ -35,6 +36,7 @@ export class FreshStartComponent implements OnInit {
     this.masterPassForm.valueChanges.subscribe(_ => {
       this.valid = this.validatePassword();
     })
+
   }
 
   /**

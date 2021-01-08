@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet, MatSnackBar } from '@angular/material';
-import { NewCredentialComponent } from '../popups/new-credential/new-credential.component';
 import { ipcRenderer } from 'electron';
-import { GETALL_DATABASE_CHNL, DELETE_CRED_DATABASE_CHNL } from '../../../../core/constants/constants';
-import { Credential } from '../../../../interfaces/Credential';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Credential } from '../../../../interfaces/Credential';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+
+import { NewCredentialComponent } from '../popups/new-credential/new-credential.component';
+import { GETALL_DATABASE_CHNL, DELETE_CRED_DATABASE_CHNL } from '../../../../core/constants/constants';
 
 @Component({
   selector: 'app-main-interface',
@@ -78,11 +80,11 @@ export class MainInterfaceComponent implements OnInit {
   private async delteFromDB(id: string) {
     try {
       const err = await ipcRenderer.invoke(DELETE_CRED_DATABASE_CHNL, id);
-      if(err) {
-        this._matSnakeBar.open('Cannot Delete', 'Dismiss', {duration: 2000});
+      if (err) {
+        this._matSnakeBar.open('Cannot Delete', 'Dismiss', { duration: 2000 });
       }
     } catch (err) {
-      this._matSnakeBar.open('Cannot Delete', 'Dismiss', {duration: 2000});
+      this._matSnakeBar.open('Cannot Delete', 'Dismiss', { duration: 2000 });
       this.filteredCredntials = this.allCredntials;
     }
   }

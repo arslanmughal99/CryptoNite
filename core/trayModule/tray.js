@@ -80,18 +80,19 @@ exports.default = (function (win, serve) {
         tray.popUpContextMenu(menuTemplate);
     });
     tray.on('click', function (e, clickBounds) {
-        if (win.isVisible()) {
-            win.hide();
-        }
-        else {
-            handleWindowToggle(clickBounds, win);
-            win.show();
-        }
+        handleWindowToggle(clickBounds, win);
+        win.show();
+        // if (win.isVisible()) {
+        //   win.hide();
+        // } else {
+        //   handleWindowToggle(clickBounds, win);
+        //   win.show();
+        // }
     });
-    // win.on('blur', _ => {
-    //   if (win.isVisible()){
-    //     win.hide();
-    //   }
-    // });
+    win.on('blur', function (_) {
+        // if (win.isVisible()){
+        win.hide();
+        // }
+    });
 });
 //# sourceMappingURL=tray.js.map

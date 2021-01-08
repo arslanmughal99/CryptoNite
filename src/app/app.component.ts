@@ -34,7 +34,6 @@ export class AppComponent {
     iconRegistry.addSvgIcon('show', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility.svg'));
     iconRegistry.addSvgIcon('name', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/name.svg'));
 
-    this.preventDevTools();
   }
 
   setLastTheme() {
@@ -42,9 +41,4 @@ export class AppComponent {
     document.querySelector('#root-body').className = themeClass;
   }
 
-  preventDevTools() {
-    remote.getCurrentWindow().webContents.on('devtools-opened', _ => {
-      remote.getCurrentWindow().webContents.closeDevTools();
-    })
-  }
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from '../../services/localstorage/local-storage.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ipcRenderer, remote } from 'electron';
-import { UPDATE_PASS_CHNL, BACKUP_CRED_DATABASE_CHNL, RESTORE_CRED_DATABASE_CHNL } from '../../../../core/constants/constants';
-import { MatSnackBar } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { LocalStorageService } from '../../services/localstorage/local-storage.service';
+import { UPDATE_PASS_CHNL, BACKUP_CRED_DATABASE_CHNL, RESTORE_CRED_DATABASE_CHNL } from '../../../../core/constants/constants';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
